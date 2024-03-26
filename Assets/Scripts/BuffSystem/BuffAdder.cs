@@ -15,7 +15,6 @@ public class BuffAdder : MonoBehaviour
         if (collision.GetComponent<PlayerController>())
         {
             BuffManager.Instance.EnqueueBuff(_buff);
-            print("Add buff: " + _buff);
             Destroy(gameObject);
         }
     }

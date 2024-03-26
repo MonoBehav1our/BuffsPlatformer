@@ -10,8 +10,6 @@ public class BuffUI : MonoBehaviour
         pictures = GetComponentsInChildren<Image>();
         BuffManager.Instance.BuffUpdated += UpdateUI;
     }
-
-    //private void OnEnable() => BuffManager.Instance.BuffUsed += UpdateUI;
     private void OnDisable() => BuffManager.Instance.BuffUpdated -= UpdateUI;
 
     public void UpdateUI(BuffInfo[] buffsInfo)
@@ -20,13 +18,11 @@ public class BuffUI : MonoBehaviour
         {
             if (i < buffsInfo.Length)
             {
-                print(i + "/" + buffsInfo.Length);
                 pictures[i].color = Color.white;
                 pictures[i].sprite = buffsInfo[i].Sprite;
             }
             else
             {
-                print("out of range, disable");
                 pictures[i].color = Color.clear;
                 pictures[i].sprite = null;
             }

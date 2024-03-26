@@ -20,6 +20,7 @@ public class BuffManager : MonoBehaviour
     [Header("BuffUser Components")]
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private GravityController _gravityController;
+    [SerializeField] private LasersController _lasersController;
 
     public void EnqueueBuff(BuffInfo buff)
     {
@@ -54,7 +55,6 @@ public class BuffManager : MonoBehaviour
 
         bool actionEnd = false;
         bool needCD = false;
-        print(_buffs.Peek());
 
         switch (_buffs.Peek().Type) //buff type
         {
@@ -72,6 +72,9 @@ public class BuffManager : MonoBehaviour
                 break;
             case BuffType.UpDash:
                 actionEnd = _playerController.UpDash();
+                break;
+            case BuffType.Lasers:
+                actionEnd = _lasersController.ChangeState();
                 break;
         }
 
