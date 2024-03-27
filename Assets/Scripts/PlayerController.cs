@@ -26,6 +26,11 @@ public class PlayerController : MonoBehaviour
     [Header("UpDash")]
     [SerializeField] private float _upDashDistance;
 
+    [Space]
+
+    [SerializeField] private GameObject _dieParticle;
+    [SerializeField] private float _delayAfterDie;
+
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -82,6 +87,8 @@ public class PlayerController : MonoBehaviour
         }
         else return false;
     }
+
+    public void Die() => StartCoroutine(DieCore());
 
     private void HorizontalMove()
     {
@@ -141,5 +148,13 @@ public class PlayerController : MonoBehaviour
         _rigidbody.MovePosition(endPos);
         _rigidbody.velocity = Vector2.zero;
         _dashing = false;
+    }
+
+    private IEnumerator DieCore()
+    {
+        Instantiate(_dieParticle, transform.position, transform.rotation);
+        transform.position = new Vector2(1000, 1000);
+        yield return new WaitForSeconds(_delayAfterDie);
+        SceneLoader.Instance.Restart();
     }
 }

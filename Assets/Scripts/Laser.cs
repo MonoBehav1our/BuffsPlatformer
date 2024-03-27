@@ -4,6 +4,7 @@ using System.Collections;
 public class Laser : MonoBehaviour
 {
     [SerializeField] private Color[] colors;
+    [SerializeField] private Color _offColor;
     [SerializeField] private float _delay;
 
     [Space]
@@ -23,7 +24,7 @@ public class Laser : MonoBehaviour
         else
         {
             StopCoroutine(EnableAnim());
-            spriteRenderer.color = Color.clear;
+            spriteRenderer.color = _offColor;
         }
 
     }
@@ -32,7 +33,7 @@ public class Laser : MonoBehaviour
     {
         if (collision.GetComponent<PlayerController>() && _isEnable)
         {
-            
+            collision.GetComponent<PlayerController>().Die();
         }
     }
 
@@ -47,7 +48,7 @@ public class Laser : MonoBehaviour
         else
         {
             StopAllCoroutines();
-            spriteRenderer.color = Color.clear;
+            spriteRenderer.color = _offColor;
         }
     }
 
