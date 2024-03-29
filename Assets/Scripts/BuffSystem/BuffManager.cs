@@ -1,5 +1,5 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -22,6 +22,8 @@ public class BuffManager : MonoBehaviour
     [SerializeField] private GravityController _gravityController;
     [SerializeField] private LasersController _lasersController;
 
+
+
     public void EnqueueBuff(BuffInfo buff)
     {
         _buffs.Enqueue(buff);
@@ -35,7 +37,6 @@ public class BuffManager : MonoBehaviour
 
         for (int i = 0; i < _startBuffsType.Length; i++)
             _buffs.Enqueue(_startBuffsType[i]);
-
     }
 
     private void Start()

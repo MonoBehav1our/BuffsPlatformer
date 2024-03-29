@@ -4255,7 +4255,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: de8f2c5b28c378d439aced3933fc9f60, type: 2}
   - {fileID: 11400000, guid: 38bddd3c65966a34eb6a879fbd8dcf1c, type: 2}
   - {fileID: 11400000, guid: 5ecc6adba5a95724cbdce8071ca32b57, type: 2}
-  _rechargingTime: 0.5
+  _rechargingTime: 0.4
   _playerController: {fileID: 1762316151}
   _gravityController: {fileID: 136313730}
   _lasersController: {fileID: 1067978982}

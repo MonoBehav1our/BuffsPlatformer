@@ -62,7 +62,6 @@ public class SceneLoader : MonoBehaviour
         }
 
         image.color = Color.black;
-        //SceneManager.LoadScene(sceneNumber);
         load.allowSceneActivation = true;
     }
 }

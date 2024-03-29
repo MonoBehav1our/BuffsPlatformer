@@ -10,6 +10,7 @@ public class BuffUI : MonoBehaviour
         pictures = GetComponentsInChildren<Image>();
         BuffManager.Instance.BuffUpdated += UpdateUI;
     }
+
     private void OnDisable() => BuffManager.Instance.BuffUpdated -= UpdateUI;
 
     public void UpdateUI(BuffInfo[] buffsInfo)
