@@ -1,0 +1,2 @@
+Build path: D:/UnityProject/TestBuildBuffPlatformer/1.1.2
+Build number: 21

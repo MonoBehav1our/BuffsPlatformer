@@ -8,19 +8,19 @@ public class BuffUI : MonoBehaviour
     private void Start()
     {
         pictures = GetComponentsInChildren<Image>();
-        BuffManager.Instance.BuffUpdated += UpdateUI;
     }
 
-    private void OnDisable() => BuffManager.Instance.BuffUpdated -= UpdateUI;
+    private void OnEnable() => BuffManager.BuffUpdated += UpdateUI;
+    private void OnDisable() => BuffManager.BuffUpdated -= UpdateUI;
 
-    public void UpdateUI(BuffInfo[] buffsInfo)
+    public void UpdateUI(IAction[] buffs)
     {
         for (int i = 0; i < pictures.Length; i++) 
         {
-            if (i < buffsInfo.Length)
+            if (i < buffs.Length)
             {
                 pictures[i].color = Color.white;
-                pictures[i].sprite = buffsInfo[i].Sprite;
+                pictures[i].sprite = buffs[i].GetConfig().Sprite;
             }
             else
             {
